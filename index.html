@@ -1,0 +1,864 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shailesh Gupta | BCA Student</title>
+  <meta
+    name="description"
+    content="Portfolio of Shailesh Gupta, BCA 1st Year Student interested in Software Engineering and Cybersecurity."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-light: #0d1b2e;
+      --card: rgba(17, 34, 56, 0.72);
+      --text: #f3f7ff;
+      --muted: #9caec7;
+      --primary: #44d7b6;
+      --secondary: #5b8cff;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top right, rgba(91, 140, 255, 0.15), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(68, 215, 182, 0.1), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 17, 31, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-family: "Space Mono", monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.93rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .tag {
+      color: var(--primary);
+      font-family: "Space Mono", monospace;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.3rem);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--primary);
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 21px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #06151a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(68, 215, 182, 0.25);
+    }
+
+    .btn-outline {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .terminal {
+      background: rgba(11, 24, 42, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+
+    .terminal-top {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ff5f56;
+    }
+
+    .circle:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .circle:nth-child(3) {
+      background: #27c93f;
+    }
+
+    .terminal-body {
+      padding: 25px;
+      font-family: "Space Mono", monospace;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .terminal-body .green {
+      color: var(--primary);
+    }
+
+    .terminal-body .blue {
+      color: var(--secondary);
+    }
+
+    /* Common Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 45px;
+    }
+
+    .section-number {
+      color: var(--primary);
+      font-family: "Space Mono", monospace;
+      font-size: 0.85rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-top: 6px;
+    }
+
+    .section-line {
+      width: 65px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .info-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .info-card,
+    .skill-card,
+    .project-card,
+    .education-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 22px;
+      transition: 0.3s;
+    }
+
+    .info-card:hover,
+    .skill-card:hover,
+    .project-card:hover,
+    .education-card:hover {
+      border-color: rgba(68, 215, 182, 0.6);
+      transform: translateY(-5px);
+    }
+
+    .info-card strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+    }
+
+    .info-card span {
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tech span {
+      color: var(--primary);
+      background: rgba(68, 215, 182, 0.1);
+      border: 1px solid rgba(68, 215, 182, 0.2);
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 0.75rem;
+    }
+
+    .project-link {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Education */
+    .education-card {
+      max-width: 750px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .education-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    .education-year {
+      color: var(--primary);
+      font-family: "Space Mono", monospace;
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+
+    /* Contact */
+    .contact-box {
+      text-align: center;
+      padding: 55px 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(
+        135deg,
+        rgba(68, 215, 182, 0.08),
+        rgba(91, 140, 255, 0.08)
+      );
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 15px auto 25px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .social-links a {
+      color: var(--muted);
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    footer {
+      padding: 25px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 850px) {
+      .hero-content,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal {
+        max-width: 600px;
+        transform: none;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 22px;
+        flex-direction: column;
+        background: var(--bg-light);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .info-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">&lt;Shailesh /&gt;</a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <div>
+          <p class="tag">HELLO, WORLD! I'M</p>
+
+          <h1>
+            Shailesh <span>Gupta</span>
+          </h1>
+
+          <p class="hero-text">
+            BCA 1st Year Student passionate about building software,
+            learning modern technologies and exploring the world of
+            cybersecurity.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="terminal">
+          <div class="terminal-top">
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+          </div>
+
+          <div class="terminal-body">
+            <p><span class="green">$</span> whoami</p>
+            <p class="blue">shailesh_gupta</p>
+            <br>
+
+            <p><span class="green">$</span> role</p>
+            <p class="blue">BCA Student</p>
+            <br>
+
+            <p><span class="green">$</span> interests</p>
+            <p class="blue">Software Engineering</p>
+            <p class="blue">Cybersecurity</p>
+            <br>
+
+            <p><span class="green">$</span> status</p>
+            <p class="blue">Always Learning_</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-number">01. ABOUT ME</span>
+          <h2>Who I Am</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I am Shailesh Gupta, a first-year Bachelor of Computer
+              Applications student. I am interested in understanding how
+              software is designed, developed and secured.
+            </p>
+
+            <br>
+
+            <p>
+              Currently, I am building my foundation in programming,
+              web development, databases, computer networks and operating
+              systems. My long-term goal is to grow as a Software Engineer
+              and Cybersecurity Professional.
+            </p>
+
+            <br>
+
+            <p>
+              I believe in continuous learning, practical projects and
+              improving my problem-solving skills every day.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <div class="info-card">
+              <strong>NAME</strong>
+              <span>Shailesh Gupta</span>
+            </div>
+
+            <div class="info-card">
+              <strong>DEGREE</strong>
+              <span>BCA - 1st Year</span>
+            </div>
+
+            <div class="info-card">
+              <strong>INTEREST</strong>
+              <span>Software Engineering</span>
+            </div>
+
+            <div class="info-card">
+              <strong>FOCUS</strong>
+              <span>Cybersecurity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-number">02. MY SKILLS</span>
+          <h2>What I Am Learning</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Programming</h3>
+            <p>C, C++, Python and programming fundamentals.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>HTML, CSS, JavaScript and responsive websites.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🔐</div>
+            <h3>Cybersecurity</h3>
+            <p>Networking basics, Linux and security fundamentals.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🗄️</div>
+            <h3>Database</h3>
+            <p>SQL and basic database management concepts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-number">03. PROJECTS</span>
+          <h2>My Recent Work</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <h3>Personal Portfolio</h3>
+            <p>
+              A responsive portfolio website to showcase my profile,
+              skills, education and projects.
+            </p>
+
+            <div class="tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+
+            <a href="https://github.com/" target="_blank" class="project-link">
+              View on GitHub →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Student Management System</h3>
+            <p>
+              A beginner-friendly project concept for managing student
+              records and academic information.
+            </p>
+
+            <div class="tech">
+              <span>Python</span>
+              <span>SQL</span>
+            </div>
+
+            <a href="https://github.com/" target="_blank" class="project-link">
+              View on GitHub →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Cybersecurity Lab</h3>
+            <p>
+              A learning project focused on Linux commands, networking
+              concepts and basic security practices.
+            </p>
+
+            <div class="tech">
+              <span>Linux</span>
+              <span>Networking</span>
+            </div>
+
+            <a href="https://github.com/" target="_blank" class="project-link">
+              View on GitHub →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-number">04. EDUCATION</span>
+          <h2>My Education</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="education-card">
+          <h3>Bachelor of Computer Applications - BCA</h3>
+          <p>
+            Currently pursuing BCA and developing a strong foundation
+            in computer science, programming and information technology.
+          </p>
+          <div class="education-year">2025 - PRESENT</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <span class="section-number">05. GET IN TOUCH</span>
+          <h2>Let's Connect</h2>
+
+          <p>
+            I am always interested in learning, collaborating on projects
+            and connecting with people from the technology community.
+          </p>
+
+          <!-- अपना email यहाँ बदलें -->
+          <a
+            href="mailto:your-email@example.com"
+            class="btn btn-primary"
+          >
+            Send Me an Email
+          </a>
+
+          <div class="social-links">
+            <!-- नीचे अपने links जरूर बदलें -->
+            <a href="https://github.com/guptashailesh1011@gmail.com" target="_blank">
+              GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank">
+              LinkedIn
+            </a>
+
+            <a href="mailto:your-email@example.com">
+              Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Shailesh Gupta. Built with HTML, CSS & JavaScript.
+    </p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+```
+
+## 2. GitHub पर website live करने के steps
+
+1. GitHub पर login करो।
+2. **New repository** पर click करो।
+3. Repository का नाम रखो:
+
+```text
+shaileshgupta.github.io
+```
+
+4. Repository को **Public** रखो।
+5. `index.html` file upload करो।
+6. **Settings → Pages** में जाओ।
+7. Source में:
+   - Branch: `main`
+   - Folder: `/root`
+8. Save करो।
+
+कुछ समय बाद website इस URL पर live हो जाएगी:
+
+```text
+https://shaileshgupta.github.io
+```
+
+## जरूरी बदलाव
+
+Code में इन चीजों को अपने अनुसार बदलना:
+
+```html
+your-email@example.com
+```
+
+```html
+https://github.com/yourusername
+```
+
+```html
+https://www.linkedin.com/in/yourusername
+```
+
+Education में `2025 - PRESENT` को अपने actual admission year से बदलना। Projects में भी वही projects लिखना जो तुमने वास्तव में बनाए या सीख रहे हो।
